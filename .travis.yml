@@ -5,4 +5,4 @@ services:
 before_install:
   - docker build -t alphacentrino/nodejs-docker-kuber-completeguide -f Dockerfile.dev .
 script:
-  - docker run -e CI=true alphacentrino/nodejs-Docker-Kuber-CompleteGuide npm run test
+  - docker run -e CI=true alphacentrino/nodejs-docker-kuber-completeguide npm run test
