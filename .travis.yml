@@ -3,6 +3,6 @@ sudo: required
 services:
   - docker
 before_install:
-  - docker build -t alphacentrino/nodejs-Docker-Kuber-CompleteGuide -f Dockerfile.dev .
+  - docker build -t alphacentrino/nodejs-docker-kuber-completeguide -f Dockerfile.dev .
 script:
   - docker run -e CI=true alphacentrino/nodejs-Docker-Kuber-CompleteGuide npm run test
