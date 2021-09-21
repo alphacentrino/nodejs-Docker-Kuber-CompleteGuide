@@ -7,6 +7,7 @@ RUN npm run build
 #CMD ["npm","run","build"]
 
 FROM nginx
+EXPOSE 80
 WORKDIR /usr/share/nginx/html
 COPY --from=builder  /app/build .
 #CMD [ "nginx","start" ] don't need to start explicitly. It will start by default
