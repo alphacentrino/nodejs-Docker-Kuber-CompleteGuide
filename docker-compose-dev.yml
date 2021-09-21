@@ -1,15 +1,15 @@
-version: '3'
+version: "3"
 services:
   web:
     # You can specify the build section to build the image. OR
     # you can use image: to use the already existing image
     # If you specify both the Build and Image, then an image will be built and named with the image name specified.
-    
+
     build:
       context: .
       dockerfile: Dockerfile.dev
     image: rdocker11/react:1
-    
+
     ports:
       - "3000:3000"
     volumes:
@@ -17,7 +17,7 @@ services:
       - .:/app
     environment:
       - CHOKIDAR_USEPOLLING=true
-  
+
   test:
     image: rdocker11/react:1
     volumes:
@@ -25,11 +25,10 @@ services:
       - .:/app
     environment:
       - CHOKIDAR_USEPOLLING=true
-    command: ["npm","run","test"]
+    command: ["npm", "run", "test"]
     stdin_open: true
     tty: true
 
     # to run a specific service i.e the container you can use the following command
     # docker-compose run <service-Name> <command t run inside the container. This will override the command mentioned in CMD in Dockerfile>
     # docker-compose run test npm run test [ this will run the 'test' container, i.e the service and run a command 'npm run test' inside it.]
-    

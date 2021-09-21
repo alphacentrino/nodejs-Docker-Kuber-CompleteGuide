@@ -6,3 +6,14 @@ before_install:
   - docker build -t alphacentrino/nodejs-docker-kuber-completeguide -f Dockerfile.dev .
 script:
   - docker run -e CI=true alphacentrino/nodejs-docker-kuber-completeguide npm run test
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-2"
+  app: "docker"
+  env: "Docker-env"
+  bucket_name: "elasticbeanstalk-eu-west-2-535173666499"
+  bucket_path: "docker"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
